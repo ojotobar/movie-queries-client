@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Badge, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { getMovieSearchResult } from '../api/movieApi'
+import SearchQueries from './SearchQueries';
 
 const SearchBar = ({ setIsLoading, setIsError, setMovieData }) => {
   const [search, setSearch] = useState('');
@@ -86,16 +87,9 @@ const SearchBar = ({ setIsLoading, setIsError, setMovieData }) => {
                 <Col xs={0} sm={0} md={3}></Col>
             </Row>
         </Form>
-        <Row className='CenterSearchBar mt-3 mb-2'>
-          <p className='h5'>Recent Searches</p>
-          <Col className='Box CenterSearchBar'>
-            {
-              searchQueries && searchQueries.map((item, index) => (
-                <Badge key={index} className='p-1 mx-1 mt-1' bg="secondary">{item}</Badge>
-              ))
-            }
-          </Col>
-        </Row>
+        <SearchQueries
+          searchQueries={searchQueries} 
+        />
 		  </Row>
     </Container>
   )

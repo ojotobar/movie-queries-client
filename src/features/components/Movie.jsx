@@ -8,6 +8,7 @@ const Movie = ({ movie }) => {
             src={movie?.poster}
             fluid
             className='Dimensions CenterSearchBar m-auto'
+            alt={movie?.title}
           />
           <Card.Body>
             <Card.Title>{movie?.title}</Card.Title>
