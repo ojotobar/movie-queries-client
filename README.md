@@ -2,9 +2,9 @@
 
 ### How To Run:
 Clone this repository by clicking this 
-[React Repository Link](https://github.com/ojotobar/movie-search-client)
+[React Repository Link](https://github.com/ojotobar/movie-queries-client)
 
-The back-end repository can be found [Here](https://github.com/ojotobar/movie-search-server).
+The back-end repository can be found [Here](https://github.com/ojotobar/movie-queries-server).
 
 Once both projects have been cloned to your local machine, run ```npm install``` to install all the dependencies for the React project and run ```dotnet restore``` for the back-end.
 
