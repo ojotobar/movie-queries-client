@@ -14,13 +14,3 @@ export const getMovieSearchResult = async (searchTerm) => {
 
     return res.data;
 }
-
-export const getMovieByIdResult = async (id) => {
-    const res = await movieApi.request({
-        params: {
-
-        }
-    })
-
-    return res.data;
-} 

@@ -2,7 +2,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, PERSIST } from 'redux-persist';
-import queryReducer from '../features/queries/querySlice';
 import { movieApi } from '../features/api/moviesApi';
 
 const persistConfig = {
@@ -13,7 +12,6 @@ const persistConfig = {
 
 const reducer = combineReducers({
   [movieApi.reducerPath]: movieApi.reducer,
-  queryList: queryReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

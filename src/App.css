@@ -98,6 +98,15 @@
 }
 
 .Dimensions {
-  width: 80% !important;
-  height: 80% !important;
+  width: 100% !important;
+  min-height: 80% !important;
+}
+
+.Box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.FloatRight {
+  float: right !important;
 }

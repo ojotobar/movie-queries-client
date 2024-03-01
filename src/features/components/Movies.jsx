@@ -1,27 +1,19 @@
-import useSWR from 'swr'
-import { getMovieSearchResult } from '../api/movieApi'
 import { Col, Container, Row, Spinner, Toast } from 'react-bootstrap'
 import Movie from './Movie'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 
-const Movies = ({ searchTerm }) => {
-    const {
-        isLoading,
-        error,
-        data
-    } = useSWR(searchTerm ? searchTerm : null, getMovieSearchResult)
-
+const Movies = ({ isLoading, isError, movieData }) => {
     useEffect(() => {
-        if(error){
-            toast.error(error?.message)
+        if(isError){
+            toast.error("An unexpected error occurred. Please try again.")
         }
-    }, [error])
+    }, [isError]);
 
-    const content = data?.search && data?.search?.length > 0 ? 
-            data?.search.map(movie => (
-            <Col key={movie?.imDbId}>
+    const content = movieData?.search && movieData?.search?.length > 0 ? 
+            movieData?.search.map(movie => (
+            <Col key={movie?.imDbId} className=''>
                 <Link to={`/movies/${movie?.imDbId}`} className="DeLink">
                     <Movie movie={movie} />
                 </Link>
@@ -34,12 +26,12 @@ const Movies = ({ searchTerm }) => {
             </Toast>
 
   return (
-    <Container className='mt-5 m-auto CenterSearchBar'>
-        <Row className="mt-5 m-auto CenterSearchBar">
+    <Container className='mt-5 m-auto CenterSearchBar m-0 p-0'>
+        <Row className="mt-5 m-auto CenterSearchBar m-0 p-0">
         {
             isLoading ?
                 <Spinner style={{ width: "3rem", height: "3rem" }}/> :
-            <Row xs={1} sm={1} md={2} lg={4} className="g-3">
+            <Row xs={1} sm={1} md={2} lg={4} className="g-3 m-0 p-0 d-flex justify-content-center">
                 { content }
             </Row>
         }
